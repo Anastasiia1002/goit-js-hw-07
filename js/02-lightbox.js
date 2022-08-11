@@ -13,32 +13,15 @@ function creategalleryItems() {
       (elem) =>
         `
      <a href="${elem.original}" class="gallery__item">
-     <img class="gallery__image" src="${elem.preview}"  alt="${elem.description}"/>
+     <img class="gallery__image" src="${elem.preview}" alt="${elem.description}"/>
      </a>
         `
     )
     .join("");
 }
+
 new SimpleLightbox(".js-gallery a", {
-  captionDelay: 250,
+  captionsData: "alt",
+  captionsDelay: 250,
+  captionPosition: "bottom",
 });
-
-// gallery.addEventListener("click", (e) => {
-//   e.preventDefault();
-//   if (e.target.nodeName !== "IMG") {
-//     return;
-//   }
-
-//   const selectedImage = e.target.getAttribute("data-source");
-//   const instance = basicLightbox.create(`
-//     <img src="${selectedImage}" width="800" height="600">
-// `);
-
-//   instance.show();
-
-//   gallery.addEventListener("keydown", (e) => {
-//     if (e.key === "Escape") {
-//       instance.close();
-//     }
-//   });
-// });
